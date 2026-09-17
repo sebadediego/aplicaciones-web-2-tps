@@ -1,0 +1,14 @@
+{
+  "name": "tp2-kinesiologia",
+  "version": "1.0.0",
+  "description": "Backend para el sitio web de Kinesio.Saludd",
+  "main": "index.mjs",
+  "scripts": {
+    "dev": "node --watch index.mjs",
+    "start": "node index.mjs"
+  },
+  "type": "module",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
