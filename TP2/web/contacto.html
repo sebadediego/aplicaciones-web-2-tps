@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="recursos/css/estilos.css">
+    <title>Contacto - Kinesio.Saludd</title>
+</head>
+<body>
+    <header class="cabecera-principal">
+        <a class="logo-menu" href="index.html" aria-label="Ir al inicio de Kinesio.Saludd">
+            <img src="recursos/imagenes/logo.jpeg" alt="Logo de Kinesio.Saludd">
+            <span>Kinesio.Saludd</span>
+        </a>
+
+        <nav class="navegacion-principal" aria-label="Navegación principal">
+            <ul class="lista-menu">
+                <li><a class="enlace-menu" href="index.html">Inicio</a></li>
+                <li><a class="enlace-menu" href="servicios.html">Servicios</a></li>
+                <li><a class="enlace-menu activo" href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenido-principal">
+        <section class="seccion-titulo">
+            <div class="contenedor">
+                <h1>Contacto</h1>
+                <p>
+                    Si querés solicitar un turno o recibir más información sobre nuestros tratamientos,
+                    podés comunicarte con nosotras o completar el formulario de turnos.
+                </p>
+            </div>
+        </section>
+
+        <section class="seccion-general">
+            <div class="contenedor grilla-contacto">
+                <article class="tarjeta-info tarjeta-contacto">
+                    <h2>Comunicate con nosotras</h2>
+                    <p>
+                        Podés comunicarte con nosotras para realizar consultas sobre tratamientos,
+                        disponibilidad o coordinar una atención.
+                    </p>
+                    <ul class="lista-datos">
+                        <li>Río Primero, Córdoba, Argentina</li>
+                        <li>Consultorio de kinesiología y fisioterapia</li>
+                        <li>Atención profesional y personalizada</li>
+                    </ul>
+                </article>
+
+                
+                    </form>
+                </section>
+            </div>
+        </section>
+
+       <section class="seccion-general">
+    <div class="contenedor">
+        <div class="tarjeta-turno">
+            <div class="encabezado-turno">
+                <p class="etiqueta-seccion">Agenda</p>
+                <h2>Solicitar turno</h2>
+                <p>Completá tus datos y elegí el día, horario y profesional.</p>
+            </div>
+
+            <form id="form-turno" class="formulario-turno">
+                <div class="campo-formulario">
+                    <label for="turno-nombre">Nombre y apellido</label>
+                    <input
+                        type="text"
+                        id="turno-nombre"
+                        placeholder="Ingresá tu nombre"
+                        required
+                    >
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="turno-telefono">Teléfono</label>
+                    <input
+                        type="text"
+                        id="turno-telefono"
+                        placeholder="Ej: 3574 123456"
+                        required
+                    >
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="turno-fecha">Fecha</label>
+                    <input
+                        type="date"
+                        id="turno-fecha"
+                        required
+                    >
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="turno-hora">Horario</label>
+                    <input
+                        type="time"
+                        id="turno-hora"
+                        required
+                    >
+                </div>
+
+                <div class="campo-formulario campo-completo">
+                    <label for="turno-profesional">Profesional</label>
+                    <select id="turno-profesional" required>
+                        <option value="">Seleccione una profesional</option>
+                        <option value="Rocio">Rocío Chialva</option>
+                        <option value="Agustina">Agustina Mendoza</option>
+                    </select>
+                </div>
+
+                <div class="campo-completo">
+                    <button
+                        class="boton-principal boton-formulario"
+                        type="submit"
+                    >
+                        Solicitar turno
+                    </button>
+                </div>
+            </form>
+
+            <p id="mensaje-turno" class="mensaje-turno"></p>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <footer class="pie-principal">
+        <div class="contenedor pie-contenido">
+            <p>© Kinesio.Saludd - Tu bienestar, nuestra prioridad</p>
+            <p>Río Primero, Córdoba, Argentina</p>
+        </div>
+    </footer>
+    <a class="boton-whatsapp" href="https://wa.me/5493574457943" target="_blank" aria-label="Enviar mensaje por WhatsApp">
+        <img src="recursos/imagenes/whatsapp.svg" alt="WhatsApp">
+    </a>
+
+    <script src="recursos/js/turnos.js"></script>
+
+</body>
+</html>
