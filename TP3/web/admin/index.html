@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Administración de servicios | Kinesio.Saludd</title>
+  <link rel="stylesheet" href="/admin/estilos-admin.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="marca">Kinesio<span>.Saludd</span></div>
+      <p class="subtitulo">Panel administrativo</p>
+      <nav><a class="activo" href="/admin/">Servicios</a><a href="/index.html">Ver sitio web ↗</a></nav>
+      <p class="nota">TP3 · Entrega parcial<br>16 de octubre de 2026</p>
+    </aside>
+    <main class="contenido">
+      <header><div><span class="etiqueta">GESTIÓN DE SERVICIOS</span><h1>Administración</h1><p>Organizá los servicios que ofrece el consultorio.</p></div><button id="nuevo" class="primario">+ Nuevo servicio</button></header>
+      <div class="aviso"><strong>Entrega parcial (punto 3.3):</strong> interfaz funcional de demostración. Los cambios se guardan únicamente en este navegador (localStorage). En la entrega final se conectará con la API y la base de datos.</div>
+      <section class="resumen"><article><small>Total de servicios</small><strong id="total">0</strong></article><article><small>Servicios activos</small><strong id="activos">0</strong></article></section>
+      <section class="panel"><div class="encabezado"><h2>Listado de servicios</h2><input id="buscar" type="search" placeholder="Buscar por nombre..." aria-label="Buscar servicios"></div>
+        <div class="tabla-wrap"><table><thead><tr><th>Servicio</th><th>Descripción</th><th>Estado</th><th>Acciones</th></tr></thead><tbody id="filas"></tbody></table></div><p id="vacio" class="vacio" hidden>No se encontraron servicios.</p>
+      </section>
+    </main>
+  </div>
+  <dialog id="dialogo"><form id="formulario"><h2 id="titulo-formulario">Nuevo servicio</h2>
+    <label>Nombre<input id="nombre" maxlength="70" required placeholder="Ej. Kinesiología"></label>
+    <label>Descripción<textarea id="descripcion" maxlength="250" required rows="4" placeholder="Breve descripción del servicio"></textarea></label>
+    <label class="check"><input id="activo" type="checkbox" checked> Servicio activo</label>
+    <p id="error" class="error" role="alert"></p>
+    <div class="acciones"><button type="button" id="cancelar" class="secundario">Cancelar</button><button type="submit" class="primario">Guardar servicio</button></div>
+  </form></dialog>
+  <script type="module" src="/admin/admin.js"></script>
+</body>
+</html>
