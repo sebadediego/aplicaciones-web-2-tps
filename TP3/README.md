@@ -27,3 +27,7 @@ Abrir http://localhost:3000/admin/ para administrar servicios o http://localhost
 - 3.6: informe integrado, script de BD y enlaces de entrega.
 
 Se conserva la versión del TP2 en su propia carpeta, sin modificaciones.
+
+## Documentación de la entrega parcial
+
+El avance está documentado en [`documentacion/Avance_TP3_Parcial.md`](documentacion/Avance_TP3_Parcial.md). El PDF del TP2 permanece sin cambios y deberá sustituirse por el informe acumulativo TP1+TP2+TP3 para completar lo requerido en el punto 3.6.
