@@ -1,24 +1,13 @@
 {
-  "name": "TP2",
+  "name": "kinesio-saludd-tp3",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "12.4.2",
-      "onFail": "download"
-    }
-  },
-  "packageManager": "pnpm@12.4.2",
+  "private": true,
   "type": "module",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env index.mjs"
+  },
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "pg": "^8.16.3"
   }
 }
