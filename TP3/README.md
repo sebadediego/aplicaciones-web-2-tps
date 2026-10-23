@@ -1,33 +1,47 @@
 # TP3 — Kinesio.Saludd
-## Entrega parcial — 16/10/2026
-Se toma como base el proyecto del TP2, conservando el sitio público, servidor Express y API de turnos.
-### Punto realizado: 3.3 — Interfaz Front-End para la administración
-Se incorporó una interfaz de administración de **servicios** en `/admin/`:
-- Listado y búsqueda de servicios.
-- Formulario de alta y modificación.
-- Acción para eliminar servicios y marcar activos/inactivos.
-- Contadores de servicios totales y activos.
-- Diseño adaptable a pantallas pequeñas.
 
-**Alcance de la entrega parcial:** la interfaz usa datos de demostración y `localStorage`; no está conectada todavía a un CRUD de servicios ni a una base de datos. Los servicios de ejemplo sirven para ilustrar el funcionamiento del panel y no son contenido validado por el consultorio.
+Aplicaciones Web 2 — entrega final (23/10/2026).
 
-### Ejecutar
-Dentro de `TP3`:
+## Trabajo realizado
+- Sitio público en `/` con servicios activos obtenidos de la API.
+- Panel en `/admin/` para agregar, modificar, eliminar y consultar servicios.
+- API de servicios organizada por módulo con Modelo, Controlador y Router.
+- Datos persistidos en PostgreSQL.
+- Documentación de API en `/api-docs/` usando Scalar.
+- Se mantienen las rutas de turnos del TP2.
+
+## Configuración
+1. Crear la base `kinesio_saludd` en PostgreSQL.
+2. Ejecutar `bd/servicios.sql` sobre esa base.
+3. Copiar `.env.ejemplo` como `.env` y escribir las credenciales reales. El archivo `.env` está en `.gitignore`.
+
+## Ejecución
+Con Node.js 22 o superior, desde la carpeta `TP3`:
+
 ```bash
 pnpm install
-node index.mjs
+pnpm start
 ```
-Abrir http://localhost:3000/admin/ para administrar servicios o http://localhost:3000 para ver la web pública.
 
-## Pendiente para la entrega final — 23/10/2026
-- 3.1: estructura modular MVC y Router.
-- 3.2: API de servicios con cinco endpoints y lectura pública; configurar CORS si corresponde.
-- 3.4: persistencia en PostgreSQL o MongoDB.
-- 3.5: documentación de API con Swagger o Scalar.
-- 3.6: informe integrado, script de BD y enlaces de entrega.
+Visitar `http://localhost:3000`, `http://localhost:3000/admin/` o `http://localhost:3000/api-docs/`.
 
-Se conserva la versión del TP2 en su propia carpeta, sin modificaciones.
+## API
+| Método | Ruta | Acción |
+|---|---|---|
+| GET | /api/servicios | Listar |
+| GET | /api/servicios/:id | Consultar uno |
+| POST | /api/servicios | Agregar |
+| PUT | /api/servicios/:id | Modificar |
+| DELETE | /api/servicios/:id | Eliminar |
 
-## Documentación de la entrega parcial
+El JSON para POST y PUT incluye `nombre`, `descripcion` y `activo`.
 
-El avance está documentado en [`documentacion/Avance_TP3_Parcial.md`](documentacion/Avance_TP3_Parcial.md). El PDF del TP2 permanece sin cambios y deberá sustituirse por el informe acumulativo TP1+TP2+TP3 para completar lo requerido en el punto 3.6.
+## Archivos de entrega
+- Código: carpeta TP3.
+- Script para recrear la base de datos: `bd/servicios.sql`.
+- Informe: carpeta `documentacion/`. Revisar que el PDF acumulativo TP1+TP2+TP3 refleje esta entrega.
+- Adjuntar también el enlace a GitHub Projects.
+
+**Seguridad:** en TP3 todavía no se implementan autenticación ni permisos de administrador (eso corresponde al TP4). Ejecutar como práctica local y no publicar el panel sin protección.
+
+**Pruebas:** las operaciones deben comprobarse localmente con PostgreSQL en funcionamiento.
