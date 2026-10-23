@@ -1,0 +1,194 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Kinesio.Saludd - API de servicios",
+    "version": "1.0.0",
+    "description": "TP3 de Aplicaciones Web 2. Cinco endpoints para consultar y administrar servicios."
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "paths": {
+    "/api/servicios": {
+      "get": {
+        "summary": "Listar todos los servicios",
+        "tags": [
+          "Servicios"
+        ],
+        "responses": {
+          "200": {
+            "description": "Listado de servicios",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Servicio"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error de base de datos"
+          }
+        }
+      },
+      "post": {
+        "summary": "Agregar un servicio",
+        "tags": [
+          "Servicios"
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Datos"
+        },
+        "responses": {
+          "201": {
+            "description": "Servicio creado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Servicio"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Datos inválidos"
+          },
+          "500": {
+            "description": "Error de base de datos"
+          }
+        }
+      }
+    },
+    "/api/servicios/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      ],
+      "get": {
+        "summary": "Consultar un servicio por ID",
+        "tags": [
+          "Servicios"
+        ],
+        "responses": {
+          "200": {
+            "description": "Servicio encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Servicio"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "summary": "Modificar un servicio",
+        "tags": [
+          "Servicios"
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Datos"
+        },
+        "responses": {
+          "200": {
+            "description": "Servicio modificado"
+          },
+          "400": {
+            "description": "Datos inválidos"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Eliminar un servicio",
+        "tags": [
+          "Servicios"
+        ],
+        "responses": {
+          "200": {
+            "description": "Servicio eliminado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Servicio": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
+          "nombre": {
+            "type": "string",
+            "example": "Masoterapia"
+          },
+          "descripcion": {
+            "type": "string",
+            "example": "Masajes terapéuticos."
+          },
+          "activo": {
+            "type": "boolean",
+            "example": true
+          }
+        }
+      },
+      "Datos": {
+        "type": "object",
+        "required": [
+          "nombre",
+          "descripcion",
+          "activo"
+        ],
+        "properties": {
+          "nombre": {
+            "type": "string",
+            "maxLength": 70
+          },
+          "descripcion": {
+            "type": "string",
+            "maxLength": 250
+          },
+          "activo": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "requestBodies": {
+      "Datos": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Datos"
+            }
+          }
+        }
+      }
+    }
+  }
+}
